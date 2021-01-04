@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "lint:ts": "tslint src/**/*.ts",
-    "compile:ts": "tsc --project tsconfig.json"
+    "compile:ts": "tsc --project tsconfig.json",
+    "test": "jest"
   },
   "dependencies": {},
   "devDependencies": {
