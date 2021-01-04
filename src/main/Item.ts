@@ -1,9 +1,12 @@
 export class Item {
-    public itemPrice: number
-    private itemName: string
+    public price: number
+    public quantity: number
+    public name: string
 
-    constructor(name: string, price: number) {
-        this.itemName = name;
-        this.itemPrice = price;
+
+    constructor(name: string, price: number, quantity: number) {
+        this.name = name
+        this.price = price
+        this.quantity = quantity
     }
 }
