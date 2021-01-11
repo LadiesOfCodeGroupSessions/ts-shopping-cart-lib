@@ -65,7 +65,7 @@ describe('Cart', () => {
   it('gets 2 bananas and 3 apples for 175', () => {
     const cart = new Cart()
     const banana = new Item('Banana', 30, 2)
-    const apple = new Item('Apples', 50, 3)
+    const apple = new Item('Apple', 50, 3)
 
     cart.addItem(banana)
     cart.addItem(apple)
