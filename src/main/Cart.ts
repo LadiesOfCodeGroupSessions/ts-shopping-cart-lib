@@ -2,24 +2,27 @@ import {Item} from './Item'
 
 export class Cart {
 
+constructor()
+{
+    let map = new Map();
+    map.set("apple",{quantity:3, price:130});
+    map.set("banana",{quantity:2, price:45})
+   
+}
+       
+
     private items: Item[] = []
 
     public addItem(item: Item) {
         this.items.push(item)
     }
 
-{
-    name:
-    quantity
-    price
-}
+    
+
 
     public getTotal() {
 
-    var map = new Map();
-    map.set("apple",{3, 10});
-    map.set("banana",20);
-    map.set("carrot",30);
+    
 
 
         let total = 0
