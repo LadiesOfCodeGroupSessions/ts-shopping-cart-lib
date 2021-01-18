@@ -1,14 +1,13 @@
 import {Item} from './Item'
 
 export class Cart {
-    public specials = new Map()
+
+    private specials  = [
+        {name: 'Apple', quantity: 3, price: 130},
+        {name: 'Banana', quantity: 2, price: 45}
+    ]
 
     private items: Item[] = []
-
-    constructor() {
-        this.specials.set('Apple', {quantity: 3, price: 130})
-        this.specials.set('Banana', {quantity: 2, price: 45})
-    }
 
     public addItem(item: Item) {
         this.items.push(item)
@@ -18,10 +17,10 @@ export class Cart {
         let total = 0
 
         this.items.forEach((item) => {
-            if (this.specials.has(item.name)) {
-                const special = this.specials.get(item.name)
-                if (special.quantity === item.quantity) {
-                    total += special.price
+            const special = this.specials.filter((x) => x.name === item.name)
+            if (special) {
+                if (special[0].quantity === item.quantity) {
+                    total += special[0].price
                     item.quantity = 0
                 }
             }
