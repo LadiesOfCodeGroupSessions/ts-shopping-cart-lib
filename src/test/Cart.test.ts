@@ -67,13 +67,15 @@ describe('Cart', () => {
     const cart = new Cart()
     const banana = new Item('Banana', 30, 11)
     const apple = new Item('Apple', 50, 10)
+    const carrot = new Item('Carrot', 20, 1)
 
     cart.addItem(banana)
     cart.addItem(apple)
+    cart.addItem(carrot)
 
     const answer = cart.getTotal()
 
-    expect(answer).toBe(695)
+    expect(answer).toBe(715)
   })
 
 })
