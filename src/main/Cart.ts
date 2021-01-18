@@ -19,6 +19,12 @@ export class Cart {
         this.items.forEach((item) => {
             const special = this.specials.find((x) => x.name === item.name)
             if (special) {
+                if(item.quantity > special.quantity){
+                    const numberOfSpecials = item.quantity / special.quantity
+                    total += special.price * numberOfSpecials
+                    item.quantity -= special.quantity * numberOfSpecials
+                }
+
                 if (special.quantity === item.quantity) {
                     total += special.price
                     item.quantity = 0
