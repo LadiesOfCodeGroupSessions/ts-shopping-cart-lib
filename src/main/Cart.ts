@@ -17,10 +17,10 @@ export class Cart {
         let total = 0
 
         this.items.forEach((item) => {
-            const special = this.specials.filter((x) => x.name === item.name)
+            const special = this.specials.find((x) => x.name === item.name)
             if (special) {
-                if (special[0].quantity === item.quantity) {
-                    total += special[0].price
+                if (special.quantity === item.quantity) {
+                    total += special.price
                     item.quantity = 0
                 }
             }

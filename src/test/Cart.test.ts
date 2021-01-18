@@ -74,4 +74,15 @@ describe('Cart', () => {
 
     expect(answer).toBe(175)
   })
+
+  // it('get total for two apples', () => {
+  //   const cart = new Cart()
+  //   const apple = new Item('Apple', 50, 2)
+  //
+  //   cart.addItem(apple)
+  //
+  //   const answer = cart.getTotal()
+  //
+  //   expect(answer).toBe(100)
+  // })
 })
