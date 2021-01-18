@@ -1,3 +1,5 @@
+import {Item} from './Item'
+
 export class StockManager {
     private stockList: {name: string, quantity: number}[]
 
@@ -10,5 +12,8 @@ export class StockManager {
         return item ? item.quantity : 0        
     }
 
-
+    public hasEnoughStock(item: Item){
+      let name = this.stockList.find((item) => item.name === name)
+      return name.quantity >= item.quantity
+    }
 }
