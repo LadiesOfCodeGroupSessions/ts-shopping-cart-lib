@@ -15,11 +15,11 @@ describe('Stock Manager', () => {
 
     cart.addItem(apple)
 
-    expect(stockManager.stockOfItem('Apple'), 1)
+    expect(stockManager.getStockOfItem('Apple')).toBe(1)
 
     const answer = cart.getTotal()
 
     expect(answer).toBe(50)
-    expect(stockManager.stockOfItem('Apple'), 0)
+    expect(stockManager.getStockOfItem('Apple')).toBe(0)
   })
 })

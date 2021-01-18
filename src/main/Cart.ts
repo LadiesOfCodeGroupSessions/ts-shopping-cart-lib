@@ -11,7 +11,7 @@ export class Cart {
 
     private items: Item[] = []
 
-    constructor(stockManager: StockManager) {
+    constructor(stockManager?: StockManager) {
         this.stockManager = stockManager
     }
 
