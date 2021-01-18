@@ -1,5 +1,2 @@
-const StockManager = () => {
-  return 0
+export class StockManager {
 }
-
-module.exports = StockManager
