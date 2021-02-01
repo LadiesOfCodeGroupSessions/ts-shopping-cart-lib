@@ -15,6 +15,8 @@ export class StockManager {
     public reduceStock(name: string, quantity: number){
         let item = this.stockList.find((item) => item.name === name)
         item.quantity -= quantity;
+        if(item.quantity < 0)
+            item.quantity = 0;
     }
 
     // public hasEnoughStock(item: Item){
