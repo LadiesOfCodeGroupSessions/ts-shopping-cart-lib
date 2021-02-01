@@ -2,6 +2,12 @@ import {Cart} from './Cart'
 import {Item} from './Item'
 
 export class Till{
+
+    private specials  = [
+        {name: 'Apple', quantity: 3, price: 130},
+        {name: 'Banana', quantity: 2, price: 45}
+    ]
+
     public getTotal(cart: Cart){
         return this.getTotalInCart(cart.items);
     }
@@ -20,6 +26,6 @@ export class Till{
             }
         })
 
-        return total + this.items.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+        return total + items.reduce((acc, item) => acc + (item.price * item.quantity), 0)
     }
 }
