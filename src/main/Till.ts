@@ -9,7 +9,7 @@ export class Till{
     ]
 
     public getTotal(cart: Cart){
-        return this.getTotalInCart(cart.items);
+        return this.getTotalInCart(cart.getItems());
     }
 
     private getTotalInCart(items: Item[]) {

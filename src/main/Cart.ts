@@ -8,10 +8,14 @@ export class Cart {
         {name: 'Banana', quantity: 2, price: 45}
     ]
 
-    public items: Item[] = []
+    private items: Item[] = []
 
     public addItem(item: Item) {
         this.items.push(item)
+    }
+
+    public getItems() {
+        return this.items;
     }
 
     public getTotal() {
