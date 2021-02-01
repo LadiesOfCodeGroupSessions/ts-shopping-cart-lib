@@ -13,9 +13,6 @@ describe('Cart', () => {
 
     const answer = cart.getItems()
 
-    expect(answer).toBe([
-      {name: 'Apple', quantity: 1, price: 50},
-      {name: 'Banana', quantity: 1, price: 45}])
+    expect(answer).toEqual([ apple, banana ])
   })
-
 })
