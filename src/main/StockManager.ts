@@ -9,11 +9,16 @@ export class StockManager {
 
     public getStockOfItem(name: string) {
         let item = this.stockList.find((item) => item.name === name)
-        return item ? item.quantity : 0        
+        return item ? item.quantity : 0
     }
 
-    public hasEnoughStock(item: Item){
-      let name = this.stockList.find((item) => item.name === name)
-      return name.quantity >= item.quantity
+    public reduceStock(name: string, quantity: number){
+        let item = this.stockList.find((item) => item.name === name)
+        item.quantity -= quantity;
     }
+
+    // public hasEnoughStock(item: Item){
+    //   let name = this.stockList.find((item) => item.name === name)
+    //   return name.quantity >= item.quantity
+    // }
 }

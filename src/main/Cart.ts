@@ -1,5 +1,4 @@
 import {Item} from './Item'
-import {StockManager} from './StockManager'
 
 export class Cart {
 

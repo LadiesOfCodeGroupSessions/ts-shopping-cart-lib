@@ -2,22 +2,16 @@ import { Item } from '../main/Item'
 import { StockManager } from '../main/StockManager'
 
 describe('Stock Manager', () => {
-  it('an item is out of stock', () => {
+  it('reduce stock', () => {
     const stockList = [
-      {name: 'Apple', quantity: 1}
+      {name: 'Apple', quantity: 10}
     ]
 
     const stockManager = new StockManager(stockList)
+    expect(stockManager.getStockOfItem('Apple')).toBe(10)
 
-    const apple = new Item('Apple', 50, 2)
+    stockManager.reduceStock('Apple', 5)
 
-    cart.addItem(apple)
-
-    expect(stockManager.getStockOfItem('Apple')).toBe(1)
-
-    const answer = cart.getTotal()
-
-    expect(answer).toBe(50)
-    expect(stockManager.getStockOfItem('Apple')).toBe(0)
+    expect(stockManager.getStockOfItem('Apple')).toBe(5)
   })
 })
