@@ -8,7 +8,7 @@ export class Cart {
         {name: 'Banana', quantity: 2, price: 45}
     ]
 
-    private items: Item[] = []
+    public items: Item[] = []
 
     public addItem(item: Item) {
         this.items.push(item)
