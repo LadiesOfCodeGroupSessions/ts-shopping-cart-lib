@@ -1,5 +1,6 @@
 import {Cart} from './Cart'
 import {Item} from './Item'
+import {StockManager} from './StockManager'
 
 export class Till{
 
@@ -7,7 +8,11 @@ export class Till{
         {name: 'Apple', quantity: 3, price: 130},
         {name: 'Banana', quantity: 2, price: 45}
     ]
+    private stockManager: StockManager;
 
+    constructor(stockManager: StockManager) {
+        this.stockManager = stockManager
+    }
     public getTotal(cart: Cart){
         return this.getTotalInCart(cart.getItems());
     }
