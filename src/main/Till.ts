@@ -34,9 +34,11 @@ export class Till {
                         item.quantity -= special.quantity * numberOfSpecials
                     }
                 }
+
+                total += item.price * item.quantity
             }
         })
 
-        return total + items.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+        return total
     }
 }

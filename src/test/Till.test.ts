@@ -92,4 +92,17 @@ describe('Till', () => {
     })
 
     // test for item not enough stock
+
+    it('reduces stock after purchase', () => {
+        const cart = new Cart()
+        const stockList = [{name: 'Apple', quantity: 5}]
+        const stockManager = new StockManager(stockList)
+        const till = new Till(stockManager)
+
+        const apples = new Item('Apple', 50, 6)
+        cart.addItem(apples)
+
+        expect(till.getTotal(cart)).toBe(230)
+        expect(stockManager.getStockOfItem('Apple')).toBe(0)
+    })
 })
