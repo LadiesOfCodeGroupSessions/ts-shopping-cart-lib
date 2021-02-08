@@ -22,8 +22,11 @@ export class Till {
 
         items.forEach((item) => {
 
-            if (this.stockManager.getStockOfItem(item.name) >= item.quantity) {
+            if (this.stockManager.getStockOfItem(item.name) < item.quantity) {
+                item.quantity = this.stockManager.getStockOfItem(item.name)
+            }
 
+            if (this.stockManager.getStockOfItem(item.name) >= item.quantity) {
                 this.stockManager.reduceStock(item.name, item.quantity)
 
                 const special = this.specials.find((x) => x.name === item.name)
