@@ -21,27 +21,33 @@ export class Till {
         let total = 0
 
         items.forEach((item) => {
+            const stockQuantity = this.stockManager.getStockOfItem(item.name)
 
-            if (this.stockManager.getStockOfItem(item.name) < item.quantity) {
-                item.quantity = this.stockManager.getStockOfItem(item.name)
+            if (stockQuantity < item.quantity) {
+                item.quantity = stockQuantity
             }
 
-            if (this.stockManager.getStockOfItem(item.name) >= item.quantity) {
+            if (stockQuantity >= item.quantity) {
                 this.stockManager.reduceStock(item.name, item.quantity)
-
-                const special = this.specials.find((x) => x.name === item.name)
-                if (special) {
-                    if (item.quantity >= special.quantity) {
-                        const numberOfSpecials = Math.floor(item.quantity / special.quantity)
-                        total += special.price * numberOfSpecials
-                        item.quantity -= special.quantity * numberOfSpecials
-                    }
-                }
-
+                total += this.applySpecial(item)
                 total += item.price * item.quantity
             }
         })
 
         return total
+    }
+
+    private applySpecial(item: Item) {
+        let itemTotal = 0
+
+        const special = this.specials.find((x) => x.name === item.name)
+        if (special) {
+            if (item.quantity >= special.quantity) {
+                const numberOfSpecials = Math.floor(item.quantity / special.quantity)
+                itemTotal += special.price * numberOfSpecials
+                item.quantity -= special.quantity * numberOfSpecials
+            }
+        }
+        return itemTotal
     }
 }
