@@ -1,30 +1,30 @@
 import {Cart} from '../main/Cart'
 import {Item} from '../main/Item'
+import { StockManager } from '../main/StockManager'
 import {Till} from '../main/Till'
-import { StockManager } from '../main/StockManager';
 
 describe('Till', () => {
     // const till = new Till();
 
     it.skip('get total for one apple', () => {
-        const cart = new Cart();
+        const cart = new Cart()
         const item = new Item('Apple', 50, 1)
 
         cart.addItem(item)
 
-        const total = till.getTotal(cart);
-
-        expect(total).toBe(50);
+        // const total = till.getTotal(cart)
+        //
+        // expect(total).toBe(50)
     })
 
     it.skip('multiple items without special', () => {
         const cart = new Cart()
         const banana = new Item('Banana', 30, 2)
-    
+
         cart.addItem(banana)
-    
+
         const answer = cart.getTotal()
-    
+
         expect(answer).toBe(45)
       })
 
@@ -41,7 +41,6 @@ describe('Till', () => {
     expect(answer).toBe(175)
     })
 
-
     it.skip('one special', () => {
         const cart = new Cart()
         const apple = new Item('Apple', 50, 3)
@@ -56,11 +55,11 @@ describe('Till', () => {
     it.skip('one special and one non-special', () => {
         const cart = new Cart()
         const apple = new Item('Apple', 50, 4)
-    
+
         cart.addItem(apple)
-    
+
         const answer = cart.getTotal()
-    
+
         expect(answer).toBe(180)
     })
 
@@ -81,9 +80,16 @@ describe('Till', () => {
 
     it('reduces stock after purchase', () => {
         const cart = new Cart()
-        const stockList = [{name: "Apple", quantity: 5}]
-        const stockManager = new StockManager(stockList);
-        const till = new Till(stockManager);
+        const stockList = [{name: 'Apple', quantity: 5}]
+        const stockManager = new StockManager(stockList)
+        const till = new Till(stockManager)
 
+        const apples = new Item('Apple', 50, 2)
+        cart.addItem(apples)
+
+        expect(till.getTotal(cart)).toBe(100)
+        expect(stockManager.getStockOfItem('Apple')).toBe(3)
     })
+
+    // test for item not enough stock
 })
