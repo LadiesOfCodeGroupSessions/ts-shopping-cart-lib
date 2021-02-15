@@ -1,7 +1,10 @@
-import {Item} from './Item'
+export interface StockItem {
+    name: string
+    quantity: number
+}
 
 export class StockManager {
-    private stockList: Array<{name: string, quantity: number}>
+    private stockList: StockItem[]
 
     constructor(stockList: Array<{name: string, quantity: number}>) {
         this.stockList = stockList

@@ -10,7 +10,7 @@ describe('Till', () => {
         ]
 
     const stockManager = new StockManager(stockList)
-    const till = new Till(stockManager);
+    const till = new Till(stockManager)
 
     it('get total for one apple', () => {
         const cart = new Cart()
