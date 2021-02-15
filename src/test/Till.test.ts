@@ -4,17 +4,22 @@ import { StockManager } from '../main/StockManager'
 import {Till} from '../main/Till'
 
 describe('Till', () => {
-    // const till = new Till();
+    // {name: string, quantity: number}[]
+    const stockList = [
+        {name: 'Apple', quantity: 100}
+        ]
 
-    it.skip('get total for one apple', () => {
+    const stockManager = new StockManager(stockList)
+    const till = new Till(stockManager);
+
+    it('get total for one apple', () => {
         const cart = new Cart()
         const item = new Item('Apple', 50, 1)
 
         cart.addItem(item)
 
-        // const total = till.getTotal(cart)
-        //
-        // expect(total).toBe(50)
+        const total = till.getTotal(cart)
+        expect(total).toBe(50)
     })
 
     it.skip('multiple items without special', () => {

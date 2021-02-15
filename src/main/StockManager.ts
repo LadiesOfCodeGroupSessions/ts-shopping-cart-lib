@@ -1,22 +1,23 @@
 import {Item} from './Item'
 
 export class StockManager {
-    private stockList: {name: string, quantity: number}[]
+    private stockList: Array<{name: string, quantity: number}>
 
-    constructor(stockList:  {name: string, quantity: number}[]) {
+    constructor(stockList: Array<{name: string, quantity: number}>) {
         this.stockList = stockList
     }
 
     public getStockOfItem(name: string) {
-        let item = this.stockList.find((item) => item.name === name)
+        const item = this.stockList.find((i) => i.name === name)
         return item ? item.quantity : 0
     }
 
-    public reduceStock(name: string, quantity: number){
-        let item = this.stockList.find((item) => item.name === name)
-        item.quantity -= quantity;
-        if(item.quantity < 0)
-            item.quantity = 0;
+    public reduceStock(name: string, quantity: number) {
+        const item = this.stockList.find((i) => i.name === name)
+        item.quantity -= quantity
+        if (item.quantity < 0) {
+            item.quantity = 0
+        }
     }
 
     // public hasEnoughStock(item: Item){
