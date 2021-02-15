@@ -22,7 +22,7 @@ describe('Till', () => {
         expect(total).toBe(50)
     })
 
-    it.skip('multiple items without special', () => {
+    it('multiple items without special', () => {
         const cart = new Cart()
         const banana = new Item('Banana', 30, 2)
 
@@ -31,22 +31,22 @@ describe('Till', () => {
         const answer = cart.getTotal()
 
         expect(answer).toBe(45)
-      })
-
-    it.skip('multiple specials', () => {
-    const cart = new Cart()
-    const banana = new Item('Banana', 30, 2)
-    const apple = new Item('Apple', 50, 3)
-
-    cart.addItem(banana)
-    cart.addItem(apple)
-
-    const answer = cart.getTotal()
-
-    expect(answer).toBe(175)
     })
 
-    it.skip('one special', () => {
+    it('multiple specials', () => {
+        const cart = new Cart()
+        const banana = new Item('Banana', 30, 2)
+        const apple = new Item('Apple', 50, 3)
+
+        cart.addItem(banana)
+        cart.addItem(apple)
+
+        const answer = cart.getTotal()
+
+        expect(answer).toBe(175)
+    })
+
+    it('one special', () => {
         const cart = new Cart()
         const apple = new Item('Apple', 50, 3)
 
@@ -57,7 +57,7 @@ describe('Till', () => {
         expect(answer).toBe(130)
     })
 
-    it.skip('one special and one non-special', () => {
+    it('one special and one non-special', () => {
         const cart = new Cart()
         const apple = new Item('Apple', 50, 4)
 
@@ -68,7 +68,7 @@ describe('Till', () => {
         expect(answer).toBe(180)
     })
 
-    it.skip('multiple specials and multiple non-specials', () => {
+    it('multiple specials and multiple non-specials', () => {
     const cart = new Cart()
     const banana = new Item('Banana', 30, 11)
     const apple = new Item('Apple', 50, 10)
