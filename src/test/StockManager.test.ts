@@ -1,4 +1,3 @@
-import { Item } from '../main/Item'
 import { StockManager } from '../main/StockManager'
 
 describe('Stock Manager', () => {

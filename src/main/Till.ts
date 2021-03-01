@@ -33,7 +33,6 @@ export class Till {
                 total += item.price * item.quantity
             }
         })
-
         return total
     }
 
