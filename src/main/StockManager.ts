@@ -17,10 +17,13 @@ export class StockManager {
 
     public reduceStock(name: string, quantity: number) {
         const item = this.stockList.find((i) => i.name === name)
+
+        if (!item) return;
+
         item.quantity -= quantity
         if (item.quantity < 0) {
             item.quantity = 0
-        }
+        }   
     }
 
     // public hasEnoughStock(item: Item){

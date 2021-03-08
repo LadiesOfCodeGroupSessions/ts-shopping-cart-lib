@@ -26,4 +26,15 @@ describe('Stock Manager', () => {
 
     expect(stockManager.getStockOfItem('Apple')).toBe(0)
   })
+
+  it('do not reduce stock of non-existent item', () => {
+    const stockList = [
+      {name: 'Apple', quantity: 4}
+    ]
+
+    const stockManager = new StockManager(stockList)
+    stockManager.reduceStock('HairDryer', 1)
+
+    expect(stockManager.getStockOfItem('Apple')).toBe(4)
+  })
 })
