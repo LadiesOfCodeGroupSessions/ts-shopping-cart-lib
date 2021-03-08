@@ -11,8 +11,13 @@ describe('Till -Specials', () => {
         {name: 'Carrot', quantity: 100}
         ]
 
+    const specials  = [
+      {name: 'Apple', quantity: 3, price: 130},
+      {name: 'Banana', quantity: 2, price: 45}
+      ]
+    
     const stockManager = new StockManager(stockList)
-    const till = new Till(stockManager)
+    const till = new Till(stockManager, specials)
     const cart = new Cart()
 
     it('multiple items without special', () => {
@@ -54,6 +59,10 @@ describe('Till -Specials', () => {
 
 describe('Till - Stock', () => {
     const cart = new Cart()
+    const specials  = [
+      {name: 'Apple', quantity: 3, price: 130},
+      {name: 'Banana', quantity: 2, price: 45}
+      ]
 
     it('reduces stock after purchase', () => {
         const stockList = [{name: 'Apple', quantity: 5}]
@@ -70,7 +79,7 @@ describe('Till - Stock', () => {
     it('gives as much stock as there is when not enough stock', () => {
         const stockList = [{name: 'Apple', quantity: 5}]
         const stockManager = new StockManager(stockList)
-        const till = new Till(stockManager)
+        const till = new Till(stockManager, specials)
 
         const apples = new Item('Apple', 50, 6)
         cart.addItem(apples)

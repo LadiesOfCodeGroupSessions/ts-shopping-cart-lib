@@ -4,14 +4,12 @@ import {StockManager} from './StockManager'
 
 export class Till {
 
-    private specials  = [
-        {name: 'Apple', quantity: 3, price: 130},
-        {name: 'Banana', quantity: 2, price: 45}
-    ]
+    private specials
     private stockManager: StockManager
 
-    constructor(stockManager: StockManager) {
+    constructor(stockManager: StockManager, specials = []) {
         this.stockManager = stockManager
+        this.specials = specials
     }
     public getTotal(cart: Cart) {
         return this.getTotalInCart(cart.getItems())
