@@ -25,9 +25,4 @@ export class StockManager {
             item.quantity = 0
         }   
     }
-
-    // public hasEnoughStock(item: Item){
-    //   let name = this.stockList.find((item) => item.name === name)
-    //   return name.quantity >= item.quantity
-    // }
 }

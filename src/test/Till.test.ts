@@ -3,8 +3,7 @@ import {Item} from '../main/Item'
 import { StockManager } from '../main/StockManager'
 import {Till} from '../main/Till'
 
-describe('Till -Specials', () => {
-    // {name: string, quantity: number}[]
+describe('Till - Specials', () => {
     const stockList = [
         {name: 'Apple', quantity: 100},
         {name: 'Banana', quantity: 100},
@@ -15,19 +14,23 @@ describe('Till -Specials', () => {
       {name: 'Apple', quantity: 3, price: 130},
       {name: 'Banana', quantity: 2, price: 45}
       ]
-    
-    const stockManager = new StockManager(stockList)
-    const till = new Till(stockManager, specials)
-    const cart = new Cart()
+
+      let stockManager;
+      let till;
+      let cart;
+
+      beforeEach(() => {
+        stockManager = new StockManager(stockList)
+        till = new Till(stockManager, specials)
+        cart = new Cart()
+      });
 
     it('multiple items without special', () => {
         const banana = new Item('Banana', 30, 2)
 
         cart.addItem(banana)
 
-        const answer = till.getTotal(cart)
-
-        expect(answer).toBe(45)
+        expect(till.getTotal(cart)).toBe(45)
     })
 
     it('multiple specials', () => {
@@ -37,9 +40,7 @@ describe('Till -Specials', () => {
         cart.addItem(banana)
         cart.addItem(apple)
 
-        const answer = till.getTotal(cart)
-
-        expect(answer).toBe(175)
+        expect(till.getTotal(cart)).toBe(175)
     })
 
     it('multiple specials and multiple non-specials', () => {
@@ -51,18 +52,23 @@ describe('Till -Specials', () => {
         cart.addItem(apple)
         cart.addItem(carrot)
 
-        const answer = till.getTotal(cart)
-
-        expect(answer).toBe(715)
+        expect(till.getTotal(cart)).toBe(715)
     })
 })
 
 describe('Till - Stock', () => {
-    const cart = new Cart()
     const specials  = [
-      {name: 'Apple', quantity: 3, price: 130},
-      {name: 'Banana', quantity: 2, price: 45}
-      ]
+        {name: 'Apple', quantity: 3, price: 130},
+        {name: 'Banana', quantity: 2, price: 45}
+        ]
+        
+    let cart;
+    let anotherCart;
+
+    beforeEach(() => {
+        cart = new Cart()
+        anotherCart = new Cart()
+      });
 
     it('reduces stock after purchase', () => {
         const stockList = [{name: 'Apple', quantity: 5}]
@@ -74,6 +80,21 @@ describe('Till - Stock', () => {
 
         expect(till.getTotal(cart)).toBe(100)
         expect(stockManager.getStockOfItem('Apple')).toBe(3)
+    })
+
+    it('reduces stock for multiple carts after purchase', () => {
+        const stockList = [{name: 'Apple', quantity: 5}]
+        const stockManager = new StockManager(stockList)
+        const till = new Till(stockManager)
+
+        const apples = new Item('Apple', 50, 2)
+        cart.addItem(apples)
+        anotherCart.addItem(apples)
+
+        expect(till.getTotal(cart)).toBe(100)
+        expect(till.getTotal(anotherCart)).toBe(100)
+
+        expect(stockManager.getStockOfItem('Apple')).toBe(1)
     })
 
     it('gives as much stock as there is when not enough stock', () => {
