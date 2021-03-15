@@ -61,7 +61,7 @@ describe('Till - Stock', () => {
         {name: 'Apple', quantity: 3, price: 130},
         {name: 'Banana', quantity: 2, price: 45}
         ]
-        
+
     let cart;
     let anotherCart;
 
