@@ -8,10 +8,35 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "lib": ["es6"],
+    "rootDir": "./",
     "outDir": "lib",
     "alwaysStrict": true,
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*", "index.ts"],
+  "exclude": [
+    "node_modules",
+    "src/test*"]
 }
+
+//  "compilerOptions": {
+//    "module": "system",
+//    "noImplicitAny": true,
+//    "removeComments": true,
+//    "allowUnreachableCode": false,
+//    "strictNullChecks": true,
+//    "outFile": "../JS/TypeScript/HelloWorld.js",
+//    "sourceMap": true
+
+//  "files": [
+//    "program.ts",
+//    "sys.ts"
+//  ],
+
+
+//{
+//  "compilerOptions": {
+//    "target": "es6",
+
+//    "esModuleInterop": true,
+
