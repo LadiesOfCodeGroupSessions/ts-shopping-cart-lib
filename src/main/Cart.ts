@@ -9,6 +9,6 @@ export class Cart {
     }
 
     public getItems() {
-        return this.items;
+        return this.items
     }
 }

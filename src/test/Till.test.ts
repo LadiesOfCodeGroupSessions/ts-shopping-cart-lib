@@ -15,15 +15,15 @@ describe('Till - Specials', () => {
       {name: 'Banana', quantity: 2, price: 45}
       ]
 
-      let stockManager;
-      let till;
-      let cart;
+    let stockManager
+    let till
+    let cart
 
-      beforeEach(() => {
-        stockManager = new StockManager(stockList)
-        till = new Till(stockManager, specials)
-        cart = new Cart()
-      });
+    beforeEach(() => {
+    stockManager = new StockManager(stockList)
+    till = new Till(stockManager, specials)
+    cart = new Cart()
+    })
 
     it('multiple items without special', () => {
         const banana = new Item('Banana', 30, 2)
@@ -62,13 +62,13 @@ describe('Till - Stock', () => {
         {name: 'Banana', quantity: 2, price: 45}
         ]
 
-    let cart;
-    let anotherCart;
+    let cart
+    let anotherCart
 
     beforeEach(() => {
         cart = new Cart()
         anotherCart = new Cart()
-      });
+      })
 
     it('reduces stock after purchase', () => {
         const stockList = [{name: 'Apple', quantity: 5}]
@@ -120,4 +120,4 @@ describe('Till - Stock', () => {
         expect(till.getTotal(cart)).toBe(0)
         expect(stockManager.getStockOfItem('Apple')).toBe(0)
     })
-});
+})
