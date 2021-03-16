@@ -8,12 +8,12 @@ describe('Till - Specials', () => {
         {name: 'Apple', quantity: 100},
         {name: 'Banana', quantity: 100},
         {name: 'Carrot', quantity: 100}
-        ]
+    ]
 
     const specials  = [
       {name: 'Apple', quantity: 3, price: 130},
       {name: 'Banana', quantity: 2, price: 45}
-      ]
+    ]
 
     let stockManager
     let till
@@ -60,7 +60,7 @@ describe('Till - Stock', () => {
     const specials  = [
         {name: 'Apple', quantity: 3, price: 130},
         {name: 'Banana', quantity: 2, price: 45}
-        ]
+    ]
 
     let cart
     let anotherCart
@@ -68,7 +68,7 @@ describe('Till - Stock', () => {
     beforeEach(() => {
         cart = new Cart()
         anotherCart = new Cart()
-      })
+    })
 
     it('reduces stock after purchase', () => {
         const stockList = [{name: 'Apple', quantity: 5}]
