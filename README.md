@@ -13,7 +13,7 @@ npm run lint
 
 To run the server:
 ```
-node index.js
+npm start
 ```
 
 To build locally:
