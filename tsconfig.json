@@ -9,11 +9,12 @@
     "sourceMap": true,
     "lib": ["es6"],
     "rootDir": "./",
-    "outDir": "lib",
+    "outDir": "build",
+    "esModuleInterop": true,
     "alwaysStrict": true,
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*", "index.js"],
+  "include": ["src/**/*", "index.ts"],
   "exclude": [
     "node_modules",
     "src/test*"]
