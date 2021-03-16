@@ -6,6 +6,11 @@ To run the tests:
 npm test
 ```
 
+To run linting:
+```
+npm run lint
+```
+
 To run the server:
 ```
 node index.js

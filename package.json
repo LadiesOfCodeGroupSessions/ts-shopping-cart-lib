@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "lint:ts": "tslint src/**/*.ts && tslint src/main/*.ts",
+    "lint": "tslint src/**/*.ts && tslint src/main/*.ts",
     "build": "tsc --project tsconfig.json",
     "test": "jest",
     "start": "node index.ts"
