@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "lint": "tslint src/**",
+    "lint": "tslint src/main/** && tslint src/test/**",
     "build": "tsc --project tsconfig.json",
     "test": "jest",
     "start": "nodemon src/index.ts",
