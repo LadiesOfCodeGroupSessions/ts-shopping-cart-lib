@@ -9,3 +9,10 @@ describe("GET / - a simple api endpoint", () => {
       expect(result.status).toEqual(200)
     })
   })
+
+  describe("GET /non-exisent", () => {
+    it("Returns a 404", async () => {
+      const result = await request.get("/non-existent")
+      expect(result.status).toEqual(404)
+    })
+  })
