@@ -16,3 +16,13 @@ describe('GET /non-exisent', () => {
         expect(result.status).toEqual(404)
     })
 })
+
+// describe('GET /items', () => {
+//     it('returns items', async () => {
+//         const result = await request.get('/items')
+//         expect(result.status).toEqual(200)
+//         expect((res) => {
+//           res.body.should.contain('apple')
+//     })
+//   })
+// })
