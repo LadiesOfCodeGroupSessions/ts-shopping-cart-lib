@@ -6,7 +6,7 @@ const PORT = 8000
 
 app.get('/', (req, res) => res.send('hello'))
 
-app.get('/items', (req, res) => res.send('blah'))
+app.get('/items', (req, res) => res.send('apples'))
 
 app.listen(PORT, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)
