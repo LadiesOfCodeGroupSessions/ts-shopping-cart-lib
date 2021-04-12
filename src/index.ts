@@ -6,7 +6,12 @@ const PORT = 8000
 
 app.get('/', (req, res) => res.send('hello'))
 
-app.get('/items', (req, res) => res.send('apples'))
+app.get('/items', (req, res) => {
+
+    const items = [{name: 'apples'}]
+
+    res.json({ items })
+})
 
 app.listen(PORT, () => {
     console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)
@@ -14,4 +19,4 @@ app.listen(PORT, () => {
 
 app.use(connectLivereload())
 
-export default app;
+export default app

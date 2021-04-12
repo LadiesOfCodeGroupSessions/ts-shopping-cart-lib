@@ -19,12 +19,10 @@ describe('GET /non-exisent', () => {
 })
 
 describe('GET /items', () => {
+
     it('returns items', async () => {
         const result = await request.get('/items')
         expect(result.status).toEqual(200)
-        expect(result.text).toEqual('apples')
-    //     expect((res) => {
-    //       res.body.should.contain('apple')
-    // })
+        expect(result.body.items[0].name).toEqual('apples')
   })
 })
