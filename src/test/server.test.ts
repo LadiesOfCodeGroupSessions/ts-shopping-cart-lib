@@ -28,14 +28,17 @@ describe('GET /items', () => {
 })
 
 describe('PUT /cart', () => {
-  it('returns items', async () => {
-    const result = await 
+  it('returns cart', async () => {
+    const result = await
     request.put('/cart')
     .send({
       'id': '123',
       'name': 'apple',
       'quantity': '1'
-    })
+    });
 
+    expect(result.status).toEqual(200)
+    expect(result.body.items.count()).toEqual(1)
+    expect(result.body.id).toEqual(123)
   })
 })
