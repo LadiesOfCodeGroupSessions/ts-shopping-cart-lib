@@ -26,3 +26,16 @@ describe('GET /items', () => {
         expect(result.body.items[0].name).toEqual('apples')
   })
 })
+
+describe('PUT /cart', () => {
+  it('returns items', async () => {
+    const result = await 
+    request.put('/cart')
+    .send({
+      'id': '123',
+      'name': 'apple',
+      'quantity': '1'
+    })
+
+  })
+})
