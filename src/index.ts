@@ -3,8 +3,13 @@ import express from 'express'
 import {Cart} from './main/Cart'
 import {Item} from './main/Item'
 
-const app = express()
 const PORT = 8000
+const app = express()
+
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => res.send('hello'))
 

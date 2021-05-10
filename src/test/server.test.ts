@@ -31,14 +31,24 @@ describe('PUT /cart', () => {
   it('returns cart', async () => {
     const result = await
     request.put('/cart')
-    .send({
-      'id': '123',
-      'name': 'apple',
-      'quantity': '1'
-    });
+           .send({'id': '123',
+                       'name': 'apple',
+                       'quantity': '1'
+           })
+           .set('Accept', 'application/json');
+
+    // cart = {
+    //     'userid' : 123,
+    //     'items' : [
+    //         {
+    //             'name': 'apple',
+    //             'quantity': 1
+    //         }
+    //     ]
+    // }
 
     expect(result.status).toEqual(200)
     expect(result.body.items.count()).toEqual(1)
-    expect(result.body.id).toEqual(123)
+    expect(result.body.userid).toEqual(123)
   })
 })
