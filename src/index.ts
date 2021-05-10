@@ -21,21 +21,17 @@ app.get('/items', (req, res) => {
 })
 
 app.put('/cart', (req, res) => {
-    console.log(req.body) //there is no body :(
     const cartId = req.body.id
     const cart = new Cart()
 
-    console.log('HERER 222222')
     const keys = Object.keys(req.body)
-    const apple = new Item('Apple', 50, Number(keys[2]))
+    const apple = new Item('Apple', 50, Number(req.body.quantity))
 
     cart.addItem(apple)
-    console.log('HERER 33333x')
+    cart.setId(cartId) // need to set the cart id
 
 
     //const itemOrder = { name : keys[1], quantity: keys[2]}
-
-
 
     res.json({ cart })
 })

@@ -1,5 +1,7 @@
 http://codekata.com/kata/kata09-back-to-the-checkout/
 
+Testing Scenario
+- Add an item to an existing cart
 
 To run the tests:
 ```

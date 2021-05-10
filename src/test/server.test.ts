@@ -31,9 +31,9 @@ describe('PUT /cart', () => {
   it('returns cart', async () => {
     const result = await
     request.put('/cart')
-           .send({'id': '123',
+           .send({'id': 123,
                        'name': 'apple',
-                       'quantity': '1'
+                       'quantity': 1
            })
            .set('Accept', 'application/json');
 
@@ -47,8 +47,11 @@ describe('PUT /cart', () => {
     //     ]
     // }
 
+    console.log("::::RESULT::::")
+    console.log(result.body)
+
     expect(result.status).toEqual(200)
-    expect(result.body.items.count()).toEqual(1)
-    expect(result.body.userid).toEqual(123)
+    expect(result.body.cart.items[0].quantity).toEqual(1)
+    expect(result.body.cart.id).toEqual(123) //currently failing
   })
 })
