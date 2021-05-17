@@ -54,6 +54,32 @@ describe('Till - Specials', () => {
 
         expect(till.getTotal(cart)).toBe(715)
     })
+
+    it('add item after getting cart total', () => {
+        const banana = new Item('Banana', 30, 2)
+        const apple = new Item('Apple', 50, 3)
+
+        cart.addItem(banana)
+        cart.addItem(apple)
+
+        const carrot = new Item('Carrot', 90, 1)
+        cart.addItem(carrot)
+
+        expect(till.getTotal(cart)).toBe(265)
+    })
+
+    it('add existing item type item after getting cart total', () => {
+        const banana = new Item('Banana', 30, 2)
+        const apple = new Item('Apple', 50, 3)
+
+        cart.addItem(banana)
+        cart.addItem(apple)
+
+        const bananaAgain = new Item('Banana', 30, 1)
+        cart.addItem(bananaAgain)
+
+        expect(till.getTotal(cart)).toBe(205)
+    })
 })
 
 describe('Till - Stock', () => {

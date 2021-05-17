@@ -1,7 +1,7 @@
 http://codekata.com/kata/kata09-back-to-the-checkout/
 
 Testing Scenario
-- Add an item to an existing cart
+- Figure out how to reset state on server correctly
 
 To run the tests:
 ```
