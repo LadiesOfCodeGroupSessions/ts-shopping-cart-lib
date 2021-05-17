@@ -3,7 +3,7 @@ import {Item} from './Item'
 export class Cart {
 
     private items: Item[] = []
-    private cartId: String
+    private id: string
 
     public addItem(item: Item) {
         this.items.push(item)
@@ -13,7 +13,7 @@ export class Cart {
         return this.items
     }
 
-    public setId(cartId){
-      return this.cartId == cartId
+    public setId(cartId) {
+        this.id = cartId
     }
 }
