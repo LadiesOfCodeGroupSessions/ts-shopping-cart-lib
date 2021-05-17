@@ -1,7 +1,7 @@
 /* tslint:disable */
 import app from '../index'
 import supertest from 'supertest'
-const request = supertest(app)
+let request = supertest(app)
 
 describe('GET / - a simple api endpoint', () => {
     it('Hello API Request', async () => {
@@ -28,6 +28,7 @@ describe('GET /items', () => {
 })
 
 describe('PUT /cart', () => {
+  request = supertest(app)
   it('returns cart', async () => {
     const result = await
     request.put('/cart')
@@ -44,7 +45,8 @@ describe('PUT /cart', () => {
 })
 
 describe('PUT /cart', () => {
-    it('returns cart', async () => {
+  request = supertest(app)
+    it('updates existing cart', async () => {
          await request.put('/cart')
                 .send({'id': "123",
                     'name': 'apple',
@@ -61,6 +63,7 @@ describe('PUT /cart', () => {
                 .set('Accept', 'application/json');
 
         expect(result.status).toEqual(200)
+        expect(result.body.cart.items.length).toEqual(1)
         expect(result.body.cart.items[0].quantity).toEqual(2)
         expect(result.body.cart.id).toEqual("123")
     })

@@ -5,6 +5,7 @@ import {Item} from './main/Item'
 
 const PORT = 8000
 const app = express()
+let cart = new Cart()
 
 let bodyParser = require('body-parser')
 
@@ -22,12 +23,11 @@ app.get('/items', (req, res) => {
 
 app.put('/cart', (req, res) => {
     const cartId = req.body.id
-    const cart = new Cart()
-
     const apple = new Item('Apple', 50, Number(req.body.quantity))
 
     cart.addItem(apple)
     cart.setId(cartId)
+    console.log(cart)
     res.json({ cart })
 })
 

@@ -20,9 +20,9 @@ describe('Till - Specials', () => {
     let cart
 
     beforeEach(() => {
-    stockManager = new StockManager(stockList)
-    till = new Till(stockManager, specials)
-    cart = new Cart()
+        stockManager = new StockManager(stockList)
+        till = new Till(stockManager, specials)
+        cart = new Cart()
     })
 
     it('multiple items without special', () => {
