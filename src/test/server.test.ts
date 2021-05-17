@@ -37,11 +37,31 @@ describe('PUT /cart', () => {
            })
            .set('Accept', 'application/json');
 
-    console.log("::::RESULT::::")
-    console.log(result.body)
-
     expect(result.status).toEqual(200)
     expect(result.body.cart.items[0].quantity).toEqual(1)
     expect(result.body.cart.id).toEqual("123")
   })
+})
+
+describe('PUT /cart', () => {
+    it('returns cart', async () => {
+         await request.put('/cart')
+                .send({'id': "123",
+                    'name': 'apple',
+                    'quantity': 1
+                })
+                .set('Accept', 'application/json');
+
+         const result = await
+            request.put('/cart')
+                .send({'id': "123",
+                    'name': 'apple',
+                    'quantity': 1
+                })
+                .set('Accept', 'application/json');
+
+        expect(result.status).toEqual(200)
+        expect(result.body.cart.items[0].quantity).toEqual(2)
+        expect(result.body.cart.id).toEqual("123")
+    })
 })
