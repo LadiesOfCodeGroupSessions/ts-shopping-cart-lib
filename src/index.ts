@@ -31,10 +31,6 @@ app.put('/cart', (req, res) => {
     res.json({ cart })
 })
 
-app.listen(PORT, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)
-})
-
-app.use(connectLivereload())
+// app.use(connectLivereload())
 
 export default app
