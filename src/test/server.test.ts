@@ -1,4 +1,3 @@
-/* tslint:disable */
 import app from '../index'
 import supertest from 'supertest'
 let request = supertest(app)
