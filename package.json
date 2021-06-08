@@ -6,7 +6,7 @@
     "lint": "tslint src/main/** && tslint src/test/**",
     "build": "tsc --project tsconfig.json",
     "test": "jest",
-    "start": "nodemon src/index.ts",
+    "start": "nodemon src/start.ts",
     "watch": "nodemon --ext ts --ignore public"
   },
   "dependencies": {

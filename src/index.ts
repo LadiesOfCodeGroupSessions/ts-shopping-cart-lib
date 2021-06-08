@@ -3,7 +3,6 @@ import express from 'express'
 import {Cart} from './main/Cart'
 import {Item} from './main/Item'
 
-const PORT = 8000
 const app = express()
 let cart = new Cart()
 
@@ -31,10 +30,6 @@ app.put('/cart', (req, res) => {
     res.json({ cart })
 })
 
-app.listen(PORT, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)
-})
-
 app.use(connectLivereload())
 
-export default app
+module.exports = app
